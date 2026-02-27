@@ -24,10 +24,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Build args for API URL
-ARG NEXT_PUBLIC_API_URL=https://api.ivoirmentor.ci
-ARG NEXT_PUBLIC_SITE_URL=https://ivoirmentor.ci
+ARG NEXT_PUBLIC_URL_API=https://api.nbesoro.com
+ARG NEXT_PUBLIC_SITE_URL=https://nbesoro.com
 
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_URL_API=$NEXT_PUBLIC_URL_API
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
