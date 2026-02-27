@@ -46,12 +46,8 @@ type TypographyProps<T extends React.ElementType> = {
   font?: (typeof TypographyFont)[number];
 } & React.ComponentPropsWithoutRef<T>;
 
-type TypographyComponent<T extends React.ElementType = 'p'> = React.ForwardRefExoticComponent<TypographyProps<T>> & {
-  displayName?: string;
-};
-
-const Typography: TypographyComponent = React.forwardRef(
-  <T extends React.ElementType = 'p'>(
+const Typography = React.forwardRef<HTMLElement, TypographyProps<React.ElementType>>(
+  (
     {
       as,
       label,
@@ -61,8 +57,8 @@ const Typography: TypographyComponent = React.forwardRef(
       weight = 400,
       font,
       ...rest
-    }: TypographyProps<T>,
-    ref?: React.ComponentPropsWithRef<T>['ref']
+    },
+    ref
   ) => {
     const Component = as || 'p';
     return (
