@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./cv-back-end
+    command: sh -c "python manage.py migrate --noinput && gunicorn backend.wsgi:application --bind 0.0.0.0:8004"
+    ports:
+      - "8004:8004"
+    env_file:
+      - ./cv-back-end/.env
+
+  frontend:
+    build:
+      context: ./cv-front-end
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_URL_API=http://localhost:8004
+    depends_on:
+      - backend
