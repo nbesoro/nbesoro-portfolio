@@ -54,7 +54,7 @@ USER nbesoro
 
 # Run migrate and Collect all static
 # RUN python manage.py collectstatic --noinput
-
+EXPOSE 8201
 # CMD python manage.py runserver 0.0.0.0:8000 --noreload
 CMD ["sh", "entrypoint.sh"]
 

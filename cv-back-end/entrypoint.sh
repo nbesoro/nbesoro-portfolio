@@ -26,9 +26,9 @@ python manage.py migrate --noinput
 echo "Collecting static files to S3..."
 python manage.py collectstatic --noinput 2>/dev/null || true
 
-echo "Starting Gunicorn on port 8004..."
+echo "Starting Gunicorn on port 8201..."
 exec gunicorn \
-    --bind 0.0.0.0:8004 \
+    --bind 0.0.0.0:8201 \
     --workers 2 \
     --timeout 120 \
     --access-logfile - \
